@@ -1,4 +1,4 @@
-# Untidy Board
+# Bamboo Forest
 
-web socket을 이용한 게시판
+web socket을 이용한  대나무숲
 
