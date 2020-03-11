@@ -1,13 +1,12 @@
-package com.minjae.untidyboard;
+package com.minjae.bambooforest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UntidyBoardApplication {
+public class BambooForestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UntidyBoardApplication.class, args);
+		SpringApplication.run(BambooForestApplication.class, args);
 	}
-
 }
