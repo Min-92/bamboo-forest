@@ -1,8 +1,8 @@
 package com.minjae.bambooforest.domain.repository;
 
 import com.minjae.bambooforest.domain.Shout;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ShoutRepository extends JpaRepository<Shout, Long> {
+public interface ShoutRepository extends CrudRepository<Shout, String> {
 
 }

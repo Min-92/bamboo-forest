@@ -1,33 +1,28 @@
 package com.minjae.bambooforest.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
 
-@Entity
+@RedisHash(value = "shout", timeToLive = 180)
 public class Shout {
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String content;
-	private String color;
-	private String font;
-	private int xPosition;
-	private int yPosition;
-	private int size;
-	private int rotate;
 
-	public Shout(String content){
+	@Id
+	private String id;
+	private String content;
+
+	public Shout(String content) {
 		this.content = content;
 	}
 
-	public void generate(){
-		color = "red";
-		font = "goolim";
-		//size는 길이에 따라서
-		//color는 제외해도 될듯
-		//rotate는 45 넘지 않도록
-		//position은 글자가 밖으로 나가지 않도록
-		//todo
+	public void generate() {
+		//todo 포지션,사이즈 생성
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getContent() {
+		return content;
 	}
 }
