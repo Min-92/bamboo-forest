@@ -26,7 +26,7 @@ public class ShoutService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<ShoutResponseDto> Load() {
+	public List<ShoutResponseDto> load() {
 		List<ShoutResponseDto> result = new ArrayList();
 
 		shoutRepository.findAll().forEach(shout -> {
