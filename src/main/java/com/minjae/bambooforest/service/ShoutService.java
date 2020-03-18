@@ -28,8 +28,11 @@ public class ShoutService {
 	@Transactional(readOnly = true)
 	public List<ShoutResponseDto> load() {
 		List<ShoutResponseDto> result = new ArrayList();
-
-		shoutRepository.findAll().forEach(shout -> {
+		shoutRepository.findAll().forEach((Shout shout) -> {
+			if (shout == null) {
+				return;
+			}
+			System.out.println(shout.getId());
 			result.add(new ShoutResponseDto(shout));
 		});
 
