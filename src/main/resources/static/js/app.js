@@ -5,8 +5,7 @@ import { Board } from "./components/board.js";
 
 class App {
     constructor() {
-        this.connected = false;
-        this.websocket = new Websocket();
+        this.websocket = new Websocket(this.addShout);
         this.form = new Form(this.websocket.send);
         this.board = new Board();
     }
@@ -14,7 +13,7 @@ class App {
     start = async () => {
         await this.init();
 
-        this.connected = this.websocket.connect(this.addShout);
+        this.websocket.connect();
     };
 
     init = async () => {
