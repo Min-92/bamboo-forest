@@ -1,16 +1,20 @@
 package com.minjae.bambooforest.dto;
 
 import com.minjae.bambooforest.domain.Shout;
+import java.time.LocalDateTime;
 
 public class ShoutResponseDto {
 
 	private String id;
 	private String content;
+	private LocalDateTime createdDateTime;
+	private int xPosition;
 
-	//todo : 좌표, 시간 등 필요한 정보 추가
 	public ShoutResponseDto(Shout shout) {
 		this.content = shout.getContent();
 		this.id = shout.getId();
+		this.createdDateTime = shout.getCreatedDateTime();
+		this.xPosition = shout.getXPosition();
 	}
 
 	public String getContent() {
@@ -27,5 +31,21 @@ public class ShoutResponseDto {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getCreatedDateTime() {
+		return createdDateTime;
+	}
+
+	public void setCreatedDateTime(LocalDateTime createdDateTime) {
+		this.createdDateTime = createdDateTime;
+	}
+
+	public int getXPosition() {
+		return xPosition;
+	}
+
+	public void setXPosition(int xPosition) {
+		this.xPosition = xPosition;
 	}
 }

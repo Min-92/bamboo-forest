@@ -1,5 +1,6 @@
 package com.minjae.bambooforest.domain;
 
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
@@ -9,13 +10,16 @@ public class Shout {
 	@Id
 	private String id;
 	private String content;
+	private LocalDateTime createdDateTime;
+	private int xPosition;
 
 	public Shout(String content) {
 		this.content = content;
 	}
 
 	public void generate() {
-		//todo 포지션,사이즈 생성
+		createdDateTime = LocalDateTime.now();
+		xPosition = (int) (Math.random() * 100);
 	}
 
 	public String getId() {
@@ -24,5 +28,13 @@ public class Shout {
 
 	public String getContent() {
 		return content;
+	}
+
+	public LocalDateTime getCreatedDateTime() {
+		return createdDateTime;
+	}
+
+	public int getXPosition() {
+		return xPosition;
 	}
 }
