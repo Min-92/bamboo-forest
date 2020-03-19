@@ -32,7 +32,6 @@ public class ShoutService {
 			if (shout == null) {
 				return;
 			}
-			System.out.println(shout.getId());
 			result.add(new ShoutResponseDto(shout));
 		});
 
