@@ -35,7 +35,18 @@ class App {
 
     addShout = shout => {
         this.board.append(shout.toElement());
-        // 외침 사라지는 이벤트 추가
+
+        this.addExpireEvent(shout);
+    };
+
+    addExpireEvent = shout => {
+        setTimeout(() => {
+            shout.element.css("opacity", "0");
+        }, 100);
+
+        setTimeout(() => {
+            shout.element.remove();
+        }, shout.remainingTime);
     };
 }
 

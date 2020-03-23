@@ -1,9 +1,9 @@
 export class Board {
     constructor() {
-        this.boardElement = $(".board");
+        this.element = $(".board");
     }
 
     append = element => {
-        this.boardElement.append(element);
+        this.element.append(element);
     };
 }
