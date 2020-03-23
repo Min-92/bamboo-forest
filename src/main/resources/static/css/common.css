@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "RIDIBating";
+    src: url("../font/RIDIBatang.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SDKukdetopokki-Lt";
+    src: url("../font/SDKukdetopokki-aLt00.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MapoGoldenPier";
+    src: url("../font/MapoGoldenPierA.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MapoFlowerIsland";
+    src: url("../font/MapoFlowerIslandA.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GyeonggiBatang";
+    src: url("../font/GyeonggiBatang.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Cafe24Oneprettynight";
+    src: url("../font/Cafe24Oneprettynight.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    background-color: #c5bcb31f;
+    height: 100%;
+    overflow: hidden;
+}
+
+section {
+    height: 90%;
+    overflow: hidden;
+}
+
+body {
+    padding: 1%;
+    margin: 0px;
+}
+
+.board {
+    user-select: none;
+    border-radius: 5px;
+    background-color: white;
+    height: 90%;
+    position: relative;
+}
+
+.shout {
+    position: absolute;
+}
+
+.shout_form {
+    margin-top: 20px;
+}
+
+.text_area {
+    width: 80%;
+    height: 25px;
+    display: inherit;
+    margin: auto;
+    color: grey;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px darkgrey;
+}
+
+.text_area:focus {
+    outline-color: grey;
+}
+
+footer {
+    height: 8%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+footer a {
+    font-size: x-small;
+    color: #00000099;
+    text-decoration: none;
+}
+
+.font0 {
+    font-family: RIDIBating;
+}
+.font1 {
+    font-family: SDKukdetopokki-Lt;
+}
+.font2 {
+    font-family: MapoGoldenPier;
+}
+.font3 {
+    font-family: MapoFlowerIsland;
+}
+.font4 {
+    font-family: GyeonggiBatang;
+}
+.font5 {
+    font-family: Cafe24Oneprettynight;
+}
