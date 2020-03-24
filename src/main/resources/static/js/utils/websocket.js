@@ -1,27 +1,37 @@
 import { Shout } from "../components/shout.js";
 
 export class Websocket {
-    constructor() {
+    constructor(addShout) {
         this.SOCKET_ENDPOINT = "/websocket";
-        this.socket = new SockJS(this.SOCKET_ENDPOINT);
-        this.stompClient = Stomp.over(this.socket);
+        this.socket;
+        this.stompClient;
+
         this.connected = false;
+        this.addShout = addShout;
     }
 
-    connect = addShout => {
-        // 연결 실패 처리
-        this.stompClient.connect({}, () => {
-            this.connected = true;
-            this.subscribe(addShout);
-        });
+    connect = () => {
+        this.socket = new SockJS(this.SOCKET_ENDPOINT);
+        this.stompClient = Stomp.over(this.socket);
+        this.stompClient.reconnect_delay = 100;
 
-        return this.connected;
+        this.stompClient.connect({}, this.success, this.failure);
     };
 
-    subscribe = addShout => {
+    success = () => {
+        this.connected = true;
+        this.subscribe();
+    };
+
+    failure = () => {
+        this.connected = false;
+        this.success();
+    };
+
+    subscribe = () => {
         this.stompClient.subscribe("/topic/shouts", response => {
             const shoutData = JSON.parse(response.body);
-            addShout(new Shout(shoutData));
+            this.addShout(new Shout(shoutData));
         });
     };
 
