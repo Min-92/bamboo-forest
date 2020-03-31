@@ -2,6 +2,7 @@ package com.minjae.bambooforest.service;
 
 import com.minjae.bambooforest.domain.Shout;
 import com.minjae.bambooforest.domain.repository.ShoutRepository;
+import com.minjae.bambooforest.domain.strategy.RandomGenerateStrategy;
 import com.minjae.bambooforest.dto.ShoutRequestDto;
 import com.minjae.bambooforest.dto.ShoutResponseDto;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ShoutService {
 	@Transactional
 	public Shout save(ShoutRequestDto dto) {
 		Shout shout = dto.toEntity();
-		shout.generate();
+		shout.generate(new RandomGenerateStrategy());
 		return shoutRepository.save(shout);
 	}
 

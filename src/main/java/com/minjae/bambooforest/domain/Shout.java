@@ -1,5 +1,6 @@
 package com.minjae.bambooforest.domain;
 
+import com.minjae.bambooforest.domain.strategy.GenerateStrategy;
 import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
@@ -14,17 +15,21 @@ public class Shout {
 	private int xPosition;
 	private int yPosition;
 	private int fontIndex;
+	private int MAX_OF_POSITION = 100;
+	private int MIN_OF_POSITION = 0;
+	private int MAX_OF_FONT_INDEX = 6;
+	private int MIN_OF_FONT_INDEX = 0;
 
 
 	public Shout(String content) {
 		this.content = content;
 	}
 
-	public void generate() {
+	public void generate(GenerateStrategy generateStrategy) {
 		createdDateTime = LocalDateTime.now();
-		xPosition = (int) (Math.random() * 100);
-		yPosition = (int) (Math.random() * 100);
-		fontIndex = (int) (Math.random() * 6);
+		xPosition = generateStrategy.getIntInRange(MIN_OF_POSITION, MAX_OF_POSITION);
+		yPosition = generateStrategy.getIntInRange(MIN_OF_POSITION, MAX_OF_POSITION);
+		fontIndex = generateStrategy.getIntInRange(MIN_OF_FONT_INDEX, MAX_OF_FONT_INDEX);
 	}
 
 	public String getId() {
