@@ -1,10 +1,11 @@
 package com.minjae.bambooforest.domain.repository;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import com.minjae.bambooforest.domain.Shout;
+import com.minjae.bambooforest.domain.strategy.RandomGenerateStrategy;
 import java.util.Optional;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +25,7 @@ public class ShoutRepositoryTest {
 	@Before
 	public void generateShout() {
 		shout = new Shout("안녕하세요.");
-		shout.generate();
+		shout.generate(new RandomGenerateStrategy());
 	}
 
 	@Test
@@ -33,7 +34,8 @@ public class ShoutRepositoryTest {
 		Shout savedShout = shoutRepository.save(shout);
 
 		// then
-		assertNotNull(savedShout.getId());
+		String id = savedShout.getId();
+		assert (StringUtils.isNotEmpty(id) && StringUtils.isNotBlank(id));
 	}
 
 	@Test
