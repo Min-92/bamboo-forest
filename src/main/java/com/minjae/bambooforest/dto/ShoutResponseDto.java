@@ -12,6 +12,10 @@ public class ShoutResponseDto {
 	private int yPosition;
 	private int fontIndex;
 
+	public ShoutResponseDto() {
+
+	}
+
 	public ShoutResponseDto(Shout shout) {
 		this.content = shout.getContent();
 		this.id = shout.getId();
